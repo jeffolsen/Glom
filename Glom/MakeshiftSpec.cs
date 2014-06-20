@@ -33,11 +33,11 @@ namespace Glom
             try
             {
                 test.Invoke();
-                System.Diagnostics.Debug.WriteLine("PASS: It " + descriptor);
+                System.Diagnostics.Debug.WriteLine("PASS: " + description + " " + descriptor);
             }
             catch (Exception e)
             {
-                System.Diagnostics.Debug.WriteLine("FAIL: It " + descriptor + " EXCEPTION " + e);
+                System.Diagnostics.Debug.WriteLine("FAIL: " + description + " " + descriptor + " EXCEPTION " + e);
             }
         }
     }
