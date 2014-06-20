@@ -8,5 +8,19 @@ namespace Glom
 {
     abstract class Glommable
     {
+        Glom glom;
+
+        public Glom Glom
+        {
+            get
+            {
+                return glom;
+            }
+
+            internal set
+            {
+                glom = value;
+            }
+        }
     }
 }
