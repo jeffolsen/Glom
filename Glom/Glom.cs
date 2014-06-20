@@ -31,6 +31,11 @@ namespace Glom
             return (T)glommedOn.FirstOrDefault(_ => _ is T);
         }
 
+        public T Without<T>() where T : Glommable
+        {
+            throw new NotImplementedException();
+        }
+
         public int Count
         {
             get

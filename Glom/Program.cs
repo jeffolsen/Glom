@@ -69,6 +69,37 @@ namespace Glom
                         Expect(glom.One<MockB>() == null);
                     });
                 });
+
+                Describe("Without<Type>(() => Type)", () =>
+                {
+                    It("calls the passed in function if nothing of the type exists", () =>
+                    {
+                        Glom glom = new Glom();
+                        
+                        glom.Without<Mock>(_ => _.Add(new Mock()));
+
+                        Expect(glom.One<Mock>() is Mock);
+                    });
+
+                    It("returns the return of the function if it is called", () =>
+                    {
+                        Glom glom = new Glom();
+                        
+                        Glommable glommable = glom.Without<Mock>(_ => _.Add(new Mock()));
+
+                        Expect(glommable is Mock);
+                    });
+
+                    It("returns the found element and doesn't call the function if the element already exists", () =>
+                    {
+                        Glom glom = new Glom();
+                        glom.Add(new MockA());
+
+                        Glommable glommable = glom.Without<Mock>(_ => _.Add(new MockB()));
+
+                        Expect(glommable is MockA);
+                    });
+                });
             });
 
             Describe("Glommable.Destroy", () =>
