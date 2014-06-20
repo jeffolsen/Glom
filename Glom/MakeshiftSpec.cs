@@ -20,6 +20,11 @@ namespace Glom
             }
         }
 
+        protected void Pending(string reason)
+        {
+            throw new Exception("Pending " + reason);
+        }
+
         protected void Describe(string descriptor, Action body)
         {
             string oldDescription = description;
