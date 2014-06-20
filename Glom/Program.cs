@@ -70,6 +70,29 @@ namespace Glom
                     });
                 });
             });
+
+            Describe("Glommable.Destroy", () =>
+            {
+                Glom glom = new Glom();
+                Glommable glommable = new Mock();
+                glom.Add(glommable);
+                glommable.Destroy();
+
+                It("removes the glommable from the glom", () =>
+                {
+                    Expect(glom.One<Mock>() == null);
+                });
+
+                It("sets glommable's glom to null", () =>
+                {
+                    Expect(glommable.Glom == null);
+                });
+
+                It("sets glommable.IsDestroyed to true", () =>
+                {
+                    Expect(glommable.IsDestroyed == true);
+                });
+            });
         }
 
         class Mock : Glommable

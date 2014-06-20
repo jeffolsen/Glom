@@ -22,5 +22,12 @@ namespace Glom
                 glom = value;
             }
         }
+
+        public void Destroy()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsDestroyed { get; set; }
     }
 }
