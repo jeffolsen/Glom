@@ -29,7 +29,16 @@ namespace Glom
         {
             string oldDescription = description;
             description += " " + descriptor;
-            body.Invoke();
+
+            try
+            {
+                body.Invoke();
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("FAIL: " + description + " EXCEPTION " + e);
+            }
+
             description = oldDescription;
         }
 
