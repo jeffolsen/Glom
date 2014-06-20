@@ -16,6 +16,11 @@ namespace Glom
             glommable.Glom = this;
         }
 
+        internal void Remove(Glommable glommable)
+        {
+            glommedOn.Remove(glommable);
+        }
+
         public T[] All<T>() where T : Glommable
         {
             return glommedOn.Where(_ => _ is T).Select(_ => (T)_).ToArray();

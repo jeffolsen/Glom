@@ -25,9 +25,16 @@ namespace Glom
 
         public void Destroy()
         {
-            throw new NotImplementedException();
+            glom.Remove(this);
+            glom = null;
         }
 
-        public bool IsDestroyed { get; set; }
+        public bool IsDestroyed 
+        {
+            get 
+            {
+                return glom == null;
+            }
+        }
     }
 }
