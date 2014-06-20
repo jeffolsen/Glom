@@ -16,14 +16,14 @@ namespace Glom
             glommable.Glom = this;
         }
 
-        public List<T> All<T>()
+        public T[] All<T>() where T : Glommable
         {
-            throw new NotImplementedException();
+            return glommedOn.Where(_ => _ is T).Select(_ => (T)_).ToArray();
         }
 
-        public T One<T>()
+        public T One<T>() where T : Glommable
         {
-            throw new NotImplementedException();
+            return (T)glommedOn.FirstOrDefault(_ => _ is T);
         }
 
         public int Count

@@ -40,17 +40,17 @@ namespace Glom
 
                     It("finds all of a type", () =>
                     {
-                        Expect(glom.All<MockA>().Count == 2);
+                        Expect(glom.All<MockA>().Length == 2);
                     });
 
                     It("finds subclasses of a type", () =>
                     {
-                        Expect(glom.All<Mock>().Count == 2);
+                        Expect(glom.All<Mock>().Length == 2);
                     });
 
                     It("returns an empty list when nothing is found", () =>
                     {
-                        Expect(glom.All<MockB>().Count == 0);
+                        Expect(glom.All<MockB>().Length == 0);
                     });
                 });
 
